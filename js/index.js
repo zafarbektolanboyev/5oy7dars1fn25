@@ -70,19 +70,20 @@ document.addEventListener('DOMContentLoaded', function(){
         let card = creatCard(element);
         wrapper.innerHTML += card;
     });
+
+
     const deleteBtn = document.querySelector('.delete');
-    
     deleteBtn.length > 0 && deleteBtn.forEach(function(element){
         element.addEventListener('click', function(event){
             event.preventDefault();
-            let id =this.getAtribute('data-id');
-            let isDelete = confirm('Rostdanam o`chirasanmi');
-            if(isDelete && id){
-                let copiedUsers = JSON.parse(JSON.stringify(users));
-                copiedUsers = copiedUsers.filter(function(el){
-                    return el.id != id
+            let isDelete = confirm("Rostdanam o'hcirasanmi");
+            if(isDelete){
+                let deleteId = this.getAttribute('data-id')
+                let copied = JSON.parse(JSON.stringify(data))
+                copied = copied.filter(function(del){
+                    return del.id != deleteBtn;
                 })
-                localStorage.setItem('users', JSON.stringify(copiedUsers));
+                localStorage.setItem('card', JSON.stringify(copied));
                 window.location.reload();
             }
         })
