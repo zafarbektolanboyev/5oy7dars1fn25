@@ -50,7 +50,7 @@ btn && btn.addEventListener('click', function(event){
     users.push(user);
     localStorage.setItem('users', JSON.stringify(users));
     form.reset();
-    let card = creatCard(element);
+    let card = creatCard(user);
     wrapper.innerHTML += card;
 })
 
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     return del.id != deleteBtn;
                 })
                 localStorage.setItem('card', JSON.stringify(copied));
-                window.location.reload();
+                window.location.reload()
             }
         })
     })
